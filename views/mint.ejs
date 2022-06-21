@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mint</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">  
+    <link rel="stylesheet" href="css/style.css">  
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/progress.css">
+    
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body class="m-0">
+
+    <% /* %>
+    <%- include ('partials/header') %>
+    <% */ %>
+    
+    <div class="custom-banner-se2">
+        <div class="manu-se3">
+            <header class="">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg">
+                      <a class="navbar-brand" href="/"><img src="images/nft.png"> </a>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a class="nav-link" href="https://twitter.com/YogaBossNFT">TWITTER</a></li>
+                            <li class="nav-item "><a class="nav-link" href="https://discord.gg/njjAS4dExD">DISCORD</a></li>
+                        </ul>
+                      </div>
+                    </nav>
+                </div>
+            </header>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-6">
+                  <div class="nft_images">
+                    <img id="nftimage" >
+                  </div>
+                    <!-- <img src="images/8-Seed-of-Life-v5-NFT.png"> -->
+                    <!-- <div class="space"></div> -->
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <h2>Mint a YOGA BOSS NFT</h2>
+                    <p>Connect your Metamask and mint your<br> YOGA BOSS NFT for <span>0.18ETH</span></p>
+                    
+                    <iframe
+                    src="https://gateway.ipfscdn.io/ipfs/QmchGLcpfPcYtLkVytFX4tcb7pY5ZnjJpQkgZYWSaoWgDS/drop.html?contract=0x4E3552c0b6447EfdDEfe7B91cbb5b0DecaCF2A81&chainId=4"
+                    width="600px"
+                    height="600px"
+                    style="max-width:100%;"
+                    frameborder="0"
+                  ></iframe>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <script type="text/javascript">
+        $(window).scroll(function() {
+        if ($(window).scrollTop() >= 1) {
+            $(".header").addClass("fixed-header");
+        } else {
+            $(".header").removeClass("fixed-header");
+        }
+    });
+    </script>    
+    <script type="text/javascript">
+        //Number Picker Plugin - TobyJ
+            (function ($) {
+              $.fn.numberPicker = function() {
+                var dis = 'disabled';
+                return this.filter('input').each(function() {
+                  var input = $(this).wrap('<div></div>'),
+                      p = $('<button></button>').insertAfter(input),
+                      m = $('<button></button>').insertBefore(input),
+                      min = parseInt(input.attr('min'), 10),
+                      max = parseInt(input.attr('max'), 10),
+                      inputFunc = function() {
+                        var i = parseInt(input.val(), 10);
+                        if ( (i <= min) || (!i) ) {
+                          input.val(min);
+                          p.prop(dis, false); m.prop(dis, true);
+                        } else if (i >= max) {
+                          input.val(max);
+                          p.prop(dis, true); m.prop(dis, false);
+                        } else {
+                          p.prop(dis, false); m.prop(dis, false);
+                        }
+                        // p.prop(dis, true); m.prop(dis, true);
+                      },
+                      changeFunc = function(qty) {
+                        var i = parseInt(input.val(), 10);
+                        if ((i < max && (qty > 0)) || (i > min && !(qty > 0))) {
+                          input.val(i + qty).change();
+                        }
+                      };
+                  m.on('click', function(){changeFunc(-1);});
+                  p.on('click', function(){changeFunc(1);});
+                  input.on('keydown', function(e) {
+                    switch(e.which) { 
+                      case 38:changeFunc(1); break;
+                      case 40:changeFunc(-1); break;
+                      default:return;
+                    }
+                    e.preventDefault();
+                  }).parent().attr('class', input.attr('class')).addClass('plusminus').on('change', function(){
+                    inputFunc();
+                  }).change(); //init
+                }).parent();
+              };
+            }(jQuery));
+
+
+            $(document).on('ready', function(){
+
+              $('input[type="number"]').numberPicker(); //turn all input
+
+              //add dynamically:
+              // $('<input type="number" name="qty" value="1" min="10" max="15" pattern="[0-9]" class="horiz">').numberPicker().appendTo('body');
+
+            });
+    </script>
+    
+</body>
+</html>
